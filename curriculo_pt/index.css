@@ -1,0 +1,71 @@
+body{
+	background-color:black;
+	color:green;
+	display: flex;
+  justify-content: center;
+}
+
+#zoom {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 10;
+    max-width: 1000px;
+    cursor: zoom-out
+}
+
+#zoom-background {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    background: #0000006e;
+    cursor: zoom-out
+}
+
+.zoom-item {
+    cursor: zoom-in
+}
+
+.zoom-show {
+    display: block!important;
+    animation-name: zoomIn;
+    animation-duration: .5s
+}
+
+.zoom-hide {
+    animation-name: zoomOut;
+    animation-duration: .5s;
+    opacity: 0
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.1)
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1)
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        display: block
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.1);
+        display: none
+    }
+}
+
